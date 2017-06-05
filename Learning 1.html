@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		form {
+			/* Just to center the form on the page */
+			margin: 0 auto;
+			width: 400px;
+
+			/* To see the outline of the form */
+			padding: 1em;
+			border: 1px solid #CCC;
+			border-radius: 1em;
+		}
+		form div + div {
+			/*add some space between each of the form widgets*/
+			margin-top: 1em;
+		}
+		label {
+			/* To make sure that all label have the same size and are properly align */
+			display: inline-block;
+			width: 90px;
+
+			/*in some cases left alignment can be okay too*/
+			text-align: right;
+		}
+		input, textarea {
+		    /* To make sure that all text fields have the same font settings
+		    By default, textareas have a monospace font */
+		    font: 1em sans-serif;
+
+		    /* To give the same size to all text field */
+		    width: 300px;
+		    -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+
+		    /* To harmonize the look & feel of text field border */
+		    border: 1px solid #999;
+		}
+		input:focus, textarea:focus {
+			/* To give a little highlight on active elements */
+			border-color: #000;
+		}
+		textarea {
+			/* To properly align multiline text fields with their labels */
+			vertical-align: top;
+
+			/* To give enough room to type some text */
+			height: 5em;
+
+		    /* To allow users to resize any textarea vertically
+		    It does not work on every browsers */
+		    resize: vertical;
+		}
+		.button {
+			/* To position the buttons to the same position of the text fields */
+			padding-left: 90px; /* same size as the label elements */
+		}
+		button {
+		    /* This extra margin represent roughly the same space as the space
+		    between the labels and their text fields */
+		    margin-left: .5em;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 
+	action attibute defines the location (an URL) where the form's collected data should be sent.
+	method attribute defines which HTTP method to send the data with (it can be "get" or "post"). 
+-->
+<form action="/my-handling-form-page" method="post">
+	<!-- 
+		input 标签通用属性：
+			autofocus  
+			disabled  
+			form  
+			name  The name of the element; this is submitted with the form data.
+			value  The element's initial value.
+
+        input 标签内可选类型：
+	        type="text" - default ： Single line text fields.
+	        	单行文本字段只有一个真正的约束：如果使用换行符键入文本，浏览器会在发送数据之前删除这些换行符。
+	        type="email" ：E-mail address field.  
+		        用户需要在该字段中键入有效的电子邮件地址;任何其他内容导致浏览器在提交表单时显示错误。注意，这是由浏览器执行的客户端错误验证。
+		        <input type="email" multiple> multiple 表示可以同时输入多个email地址，用，分割符区分
+	        type="password" : Password field. 
+		        它不会对输入的文本添加任何特殊约束，但会掩盖输入到该字段中的值（例如，带有点或星号），因此不能被其他人读取。 
+		        这只是一个用户界面功能;除非安全地提交表单，否则将以纯文本格式发送，这对安全性是不利的
+	        type="search" : Search field. 
+		        文本字段和搜索字段之间的主要区别是浏览器的样式，通常，搜索字段以圆角长框呈现，给或不给出“x”按下以清除输入的值。
+		        有一个值得注意的附加功能：它们的值可以自动保存为在同一站点的多个页面上自动完成。
+	        type="tel" : Phone number field. 
+	        	不会对用户输入的值（包括字母等）强制执行任何约束。
+	        type="url": URL field. 
+	        	如果输入无效的URL，浏览器会报告错误。
+	-->
+	<!-- for 属性规定 label 与哪个表单元素绑定。 通过设置label for 的内容 = input / textarea /..  id 的内容 -->
+	<div>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="user_name" />
+	</div>
+	<div>
+		<label for="mail">E-mail:</label>
+		<input type="email" id="mail" name="user_email" />
+	</div>
+	<div>
+		<label for="msg">Message:</label>
+		<textarea id="msg" name="user_message" ></textarea>
+	</div>
+	
+	<!-- 
+	一个按钮可以有三种类型：submit 提交，reset 重置或 button 按钮。 
+		点击 提交 按钮将表单的数据发送到由<form>元素的act
+		ion属性定义的网页。 
+		点击 重置 按钮，立即将所有窗体小部件重置为默认值。从UX的角度来看，这被认为是不好的做法。 点击一个按钮按钮...没有什么！这听起来很愚蠢，但是用JavaScript构建自定义按钮非常有用。 
+
+	请注意，您也可以使用相应类型的<input>元素来生成按钮。与<button>元素的主要区别在于，<input>元素仅允许纯文本作为其标签，而<button>元素允许使用完整的HTML内容作为其标签。
+	-->
+	<div class="button">
+		<button type="submit">Send your message</button>
+	</div>
+</form>
+</form>
+</body>
+</html>
