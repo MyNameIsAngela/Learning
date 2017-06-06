@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>学习表单设计   1.第一个HTML表单</title>
 	<style type="text/css">
 		form {
 			/* Just to center the form on the page */
@@ -67,17 +67,17 @@
 </head>
 <body>
 	<!-- 
-	action attibute defines the location (an URL) where the form's collected data should be sent.
-	method attribute defines which HTTP method to send the data with (it can be "get" or "post"). 
--->
+	action ： 定义了数据将被发送到的位置。它的值必须是一个合法的URL地址，如果没有包含该属性，数据将被发送到当前页面的地址。
+	method ： 定义了数据是如何发送的，HTML表单数据可以通过至少两种方式来发送：GET和POST方法。
+	-->
 <form action="/my-handling-form-page" method="post">
 	<!-- 
 		input 标签通用属性：
-			autofocus  
-			disabled  
-			form  
-			name  The name of the element; this is submitted with the form data.
-			value  The element's initial value.
+			autofocus = "autofocus" - default   规定输入字段在页面加载时是否获得焦点。
+			disabled = "disabled" - default     当 input 元素加载时禁用此元素。
+			form  	                            规定输入字段所属的一个或多个表单。
+			name                                The name of the element; this is submitted with the form data.
+			value                               The element's initial value.
 
         input 标签内可选类型：
 	        type="text" - default ： Single line text fields.
@@ -105,11 +105,13 @@
 		<label for="mail">E-mail:</label>
 		<input type="email" id="mail" name="user_email" />
 	</div>
+	<!-- 	
 	textarea : Multi-line text fields.
 	textarea 标签属性 
 		cols : default 20, 控件的可见文本宽度。
 		rows : 控件的可见文本行数。
-		wrap : default soft 指示控件如何包装文本,(soft or hard)。
+		wrap : default soft 指示控件如何包装文本,(soft or hard)。 
+	-->
 	<div>
 		<label for="msg">Message:</label>
 		<textarea id="msg" name="user_message" ></textarea>

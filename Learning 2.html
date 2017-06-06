@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>发送表单数据</title>
+	<!-- 源网页： https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data#Example_Raw_PHP -->
+</head>
+<body>
+	<!-- 使用GET请求，用户将会在URL中看到传输的数据，但是使用POST请求，我们并不能直接看到传输的数据。 -->
+	<!-- 
+	GET方法用来让浏览器向服务器请求并索取一个资源，数据将会以增加的方式追加到URL地址后面；
+	本次请求的结构如下所示：
+		GET /?say=Hi&to=Mom HTTP/1.1
+		Host: foo.com 
+	-->
+	<form action="http://foo.com" method="get">
+		<input name="say" value="Hi">
+		<input name="to" value="Mom">
+		<button>Send my greetings</button>
+	</form>
+
+	<!-- 	
+	Content-Length 头指定了body的大小，Content-Type头指定了发送到服务器资源的类型。 
+	本次HTTP请求结构如下：
+		POST / HTTP/1.1
+		Host: foo.com
+		Content-Type: application/x-www-form-urlencoded
+		Content-Length: 13
+
+		say=Hi&to=Mom
+	-->
+	<form action="http://foo.com" method="post">
+		<input name="say" value="Hi">
+		<input name="to" value="Mom">
+		<button>Send my greetings</button>
+	</form>
+
+	<!-- 
+	如果要发送文件数据，必须做以下两个步骤：
+	method="post" ： because file content can't be put inside a URL parameter using a form.
+	enctype="multipart/form-data" ： because the data will be split into multiple parts, one for each file plus one for the text of the form body that may be sent with them. 
+	-->
+	<form method="post" enctype="multipart/form-data">
+		<input type="file" name="myFile">
+		<button>Send the file</button>
+	</form>
+</body>
+</html>
