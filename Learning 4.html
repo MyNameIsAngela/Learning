@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单验证 2.JavaScript处理的表单验证</title>
+	<!-- 源网页： https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Forms/Data_form_validation#异步验证 -->
+	<style type="text/css">
+		/* This is just to make the example nicer */
+		body {
+			font: 1em sans-serif;
+			padding: 0;
+			margin : 0;
+		}
+
+		form {
+			max-width: 200px;
+		}
+
+		p * {
+			display: block;
+		}
+
+		input[type=email]{
+			-webkit-appearance: none;
+
+			width: 100%;
+			border: 1px solid #333;
+			margin: 0;
+
+			font-family: inherit;
+			font-size: 90%;
+
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		/* This is our style for the invalid fields */
+		input:invalid{
+			border-color: #900;
+			background-color: #FDD;
+		}
+
+		input:focus:invalid {
+			outline: none;
+		}
+
+		/* This is the style of our error messages */
+		.error {
+			width  : 100%;
+			padding: 0;
+
+			font-size: 80%;
+			color: white;
+			background-color: #900;
+			border-radius: 0 0 5px 5px;
+
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		.error.active {
+			padding: 0.3em;
+		}
+	</style>
+	<script type="text/javascript">
+		// There are many ways to pick a DOM node; here we get the form itself and the email
+		// input box, as well as the span element into which we will place the error message.
+
+		var form  = document.getElementsByTagName('form')[0];
+		var email = document.getElementById('mail');
+		var error = document.querySelector('.error');
+		// Each time the user types something, we check if the email field is valid.
+		
+			email.addEventListener("keyup", function (event) {
+  				if (email.validity.valid) {	// In case there is an error message visible, if valid, we remove the error message.
+   					error.innerHTML = ""; // Reset the content of the message
+   					error.className = "error"; // Reset the visual state of the message
+   				}
+   			}, false);
+		
+		
+			form.addEventListener("submit", function (event) {
+				// Each time the user tries to send the data, we check if the email field is valid.
+				if (!email.validity.valid) {
+
+   					// If the field is not valid, we display a custom error message.
+   					error.innerHTML = "I expect an e-mail, darling!";
+   					error.className = "error active";
+    				// And we prevent the form from being sent by canceling the event
+    				event.preventDefault();
+    			}
+    		}, false);	
+		
+		
+	</script>
+</head>
+<body>
+	<!-- form的 “novalidate”属性 关闭表单自动约束-验证功能 -->
+	<form novalidate>
+		<p>
+			<label for="mail">
+				<span>Please enter an email address:</span>
+				<input type="email" id="mail" name="mail">
+				<!-- aria-live 属性 : 保障我们的定制错误对所有人都是有效的，包括使用辅助技术的人，如使用屏幕阅读器的人 -->
+				<span class="error" aria-live="polite"></span>
+			</label>
+		</p>
+
+		<button>Submit</button>
+	</form>
+	
+
+		</body>
+		</html>
