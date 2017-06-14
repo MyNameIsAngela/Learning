@@ -1,0 +1,152 @@
+/*类型选择器（元素选择器）*/
+p {
+	color: red;
+}
+div {
+	margin: 0 auto; /*中心*/
+	width: 400px; /*宽度*/
+	padding: 1em; /*上下间隔*/
+	border: 1px solid #CCC;  /*边框*/
+	border-radius: 1em;  /*边框为圆角*/
+}
+
+/*类选择器（Class selectors）*/
+.first {
+	font-weight: bold;
+}
+.done {
+	text-decoration: line-through;
+}
+
+/*ID 选择器EDIT */
+#polite {
+	font-family: cursive;
+}
+#rude {
+	font-family: monospace;
+	text-transform: uppercase;
+}
+
+/*Combinators*/
+section p {
+	color: blue;
+}
+section > p {
+	background-color: yellow;
+}
+h2 + p {
+	text-transform: uppercase;
+}
+h2 ~ p {
+	border: 1px dashed black;
+}
+
+/*存在和值（Presence and value）属性选择器*/
+[data-vegetable] {		/*该选择器选择包含 attr 属性的所有元素，不论 attr 的值为何。*/
+	color: green
+}
+[data-vegetable="liquid"] {		/*该选择器仅选择 attr 属性被赋值为 val 的所有元素。*/
+	background-color: goldenrod;
+}
+[data-vegetable~="spicy"] {		/*该选择器仅选择 attr 属性的值（以空格间隔出多个值）中有包含 val 值的所有元素。*/
+	color: red;
+}
+
+/*子串值（Substring value）属性选择器 or 伪正则选择器*/
+[lang1|=fr] {  	 /*选择attr属性的值以val（包括val）或val-开头的元素（-用来处理语言编码）。*/
+	font-weight: bold;
+}
+[data-quantity1^="optional"] {  	/*选择attr属性的值以val开头（包括val）的元素。*/
+	opacity: 0.5;
+}
+[data-quantity1$="kg"] { 	/*选择attr属性的值以val结尾（包括val）的元素。*/
+	font-weight: bold;
+}
+[data-vegetable1*="not spicy"] { 	/*选择attr属性的值中包含字符串val的元素。*/
+	color: green;
+}
+
+/*伪类 前面加上一个冒号（:)，只有当它们处于特定状态时才想对所选元素进行样式化。例如，鼠标悬停时。*/
+a {
+	color: yellow;
+	font-weight: bold;
+}
+a:visited { /*???有点问题*/
+	color: green;
+	text-decoration: line-through;
+}
+a:hover, /*鼠标停留时*/
+a:active, /*触发时*/
+a:focus { /*键盘??*/
+	color: red;
+	text-decoration: none;
+}
+
+/*伪元素*/
+[href^=http]::after {  以http开头的属性后面添加 ⤴ 符号
+	content: '⤴';
+}
+
+/*Combinators*/
+/* Basic table setup */
+table {
+	font: 1em sans-serif;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* All <td>s within a <table> and all <th>s within a <table>
+   Comma is not a combinator, it just allows you to target
+   several selectors with the same CSS ruleset */
+   table td, table th {
+   	border : 1px solid black;
+   	padding: 0.5em 0.5em 0.4em;
+   }
+
+   /* All <th>s within <thead>s that are within <table>s */
+   table thead th {
+   	color: white;
+   	background: black;
+   }
+
+/* All <td>s preceded by another <td>,
+within a <tbody>, within a <table> */
+table tbody td + td {
+	text-align: center;
+}
+
+/* All <td>s that are a last child,
+within a <tbody>, within a <table> */
+table tbody td:last-child {
+	text-align: right
+}
+
+/* All <th>s, within a <tfoot>s, within a <table> */
+table tfoot th {
+	text-align: right;
+	border-top-width: 5px;
+	border-left: none;
+	border-bottom: none;
+}
+
+/* All <td>s preceded by a <th>, within a <table> */
+table th + td {
+	text-align: right;
+	border-top-width: 5px;
+	color: white;
+	background: black;
+}
+
+/* All pseudo-elements "before" <td>s that are a last child,
+   appearing within elements with a class of "with-currency" that
+   also have an attribute "lang" with the value "en-US" */
+   .with-currency[lang="en-US"] td:last-child::before {
+   	content: '$';
+   }
+
+/* All pseudo-elements "after" <td>s that are a last child,
+   appearing within elements with the class "with-currency" that
+   also have an attribute "lang" with the value "fr" */
+   .with-currency[lang="fr"] td:last-child::after {
+   	content: ' €';
+   }

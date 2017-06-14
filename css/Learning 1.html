@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一、CSS介绍 - 1.CSS 选择器</title>
+	<!-- 学习网站：https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Selectors -->
+</head>
+<link rel="stylesheet" type="text/css" href="Learning 1.css">
+<body>
+	<!-- 一、类型选择器（元素选择器） -->
+	<div>
+		<span>What color do you like?</span>
+		<div>I like blue.</div>
+		<span>I prefer red!</span>
+	</div>
+
+	<!-- 类选择器（Class selectors） -->
+	<div>
+		<ul>
+			<li class="first done">Create an HTML document</li>
+			<li class="second done">Create a CSS style sheet</li>
+			<li class="third">Link them all together</li>
+		</ul>
+	</div>
+
+	<!-- ID 选择器EDIT -->
+	<div>
+		<p id="polite"> — "Good morning."</p>
+		<p id="rude"> — "Go away!"</p>
+	</div>
+
+	<!-- 二、Combinators -->
+	<div>
+		<section>
+			<h2>Heading 1</h2>
+			<p>Paragraph 1</p>
+			<p>Paragraph 2</p>
+			<div>
+				<h2>Heading 2</h2>
+				<p>Paragraph 3</p>
+				<p>Paragraph 4</p>
+			</div>
+		</section>
+	</div>
+
+	<!-- 存在和值（Presence and value）属性选择器 -->
+	<div>
+		我的食谱配料: <i lang="fr-FR">Poulet basquaise</i>
+		<ul>
+			<li data-quantity="1kg" data-vegetable>Tomatoes</li>
+			<li data-quantity="3" data-vegetable>Onions</li>
+			<li data-quantity="3" data-vegetable>Garlic</li>
+			<li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+			<li data-quantity="2kg" data-meat>Chicken</li>
+			<li data-quantity="optional 150g" data-meat>Bacon bits</li>
+			<li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+			<li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+		</ul>
+	</div>
+
+	<!-- 子串值（Substring value）属性选择器 or 伪正则选择器 -->
+	<div>
+		我的食谱配料: <i lang1="fr-FR">Poulet basquaise</i>
+		<ul>
+			<li data-quantity1="1kg" data-vegetable1>Tomatoes</li>
+			<li data-quantity1="3" data-vegetable1>Onions</li>
+			<li data-quantity1="3" data-vegetable1>Garlic</li>
+			<li data-quantity1="700g" data-vegetable1="not spicy like chili">Red pepper</li>
+			<li data-quantity1="2kg" data-meat>Chicken</li>
+			<li data-quantity1="optional 150g" data-meat>Bacon bits</li>
+			<li data-quantity1="optional 10ml" data-vegetable1="liquid">Olive oil</li>
+			<li data-quantity1="25cl" data-vegetable1="liquid">White wine</li>
+		</ul>
+	</div>
+
+	<!-- 三、伪类 前面加上一个冒号（:)，只有当它们处于特定状态时才想对所选元素进行样式化。例如，鼠标悬停时。 -->
+	<div>
+		<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements" 
+		target="_blank">伪类标签链接</a>
+	</div>
+
+	<!-- 伪元素 -->
+	<div>
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/CSS">CSS</a> defined in the MDN glossary.</li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML">HTML</a> defined in the MDN glossary.</li>
+		</ul>
+	</div>
+
+	<!-- 四、Combinators -->
+	<div>
+		<table lang="en-US" class="with-currency">
+			<thead>
+				<tr>
+					<th scope="col">Product</th>
+					<th scope="col">Qty.</th>
+					<th scope="col">Price</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th colspan="2" scope="row">Total:</th>
+					<td>148.55</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<td>Lawnchair</td>
+					<td>1</td>
+					<td>137.00</td>
+				</tr>
+				<tr>
+					<td>Marshmallow rice bar</td>
+					<td>2</td>
+					<td>1.10</td>
+				</tr>
+				<tr>
+					<td>Book</td>
+					<td>1</td>
+					<td>10.45</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
