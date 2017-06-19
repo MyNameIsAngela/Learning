@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一、CSS介绍 - 3.层叠和继承</title>
+	<!-- 学习源网页：https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance -->
+	<link rel="stylesheet" type="text/css" href="Learning 3.css">
+</head>
+<body>
+	<!-- 例1 优先级  !important > id > class > element  -->
+	<p class="better">This is a paragraph.</p>
+	<p class="better" id="winning">One selector to rule them all!</p>
+
+	<!-- 例2 specifity 特意性量 数值越高 越获胜 -->
+	<div id="outer" class="container">
+		<div id="inner" class="container">
+			<ul>
+				<li class="nav"><a href="#">One</a></li>
+				<li class="nav"><a href="#">Two</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 例3 继承 -->
+	<ul>
+		<li>Default <a href="#">蓝</a> color</li>
+		<li class="inherit">Inherit the <a href="#">绿</a> color</li>
+		<li class="initial">Reset the <a href="#">黑</a> color</li>
+		<li class="unset">Unset the <a href="#">绿</a> color</li>
+	</ul>
+</body>
+</html>

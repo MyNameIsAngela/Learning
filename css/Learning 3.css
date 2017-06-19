@@ -1,0 +1,78 @@
+/*例1 优先级  !important > id > class > element*/
+#winning { /*id*/
+  background-color: red;
+  border: 1px solid black;
+}
+.better { /*class*/
+  background-color: gray;
+  border: none !important;  /*优先级 class < id 但是加了 !important 所以考虑使用此样式*/
+}
+p { /*elements*/
+  background-color: blue;
+  color: white;
+  padding: 5px;
+}
+
+/*例2 specifity 特意性量 数值越高 越获胜*/
+/*使用4个不同的值，测量选择器的特异性：
+千 1000：<style> 元素
+百 0100：ID选择器
+十 0010：类选择器、属性选择器、伪类
+个 0001：元素选择器、伪元素*/
+#outer a { /* specificity = ID选择器 100 + 元素选择器 1 = 0101*/
+  background-color: red;
+}
+#outer #inner a { /* specificity = 2 * （ID选择器 100）+ 元素选择器 1 = 0201 胜出 背景色为蓝色*/
+  background-color: blue;
+}
+#outer div ul li a { /* specificity = （ID选择器 100） + 4 * （元素选择器 1） = 0104*/
+  color: yellow;
+}
+#outer div ul .nav a { /* specificity = （ID选择器 100） + 3 * （元素选择器 1） + （类选择器 10）= 0113 胜出 文本颜色为白色*/
+  color: white;
+}
+div div li:nth-child(2) a:hover {  /* specificity = 2 * （伪类 10）+ 4 * （元素选择器 1） = 0024*/
+  border: 10px solid black;
+}
+div li:nth-child(2) a:hover {  /* specificity = 2 * （伪类 10）+ 3 * （元素选择器 1） = 0023*/
+  border: 10px dashed black;
+}
+div div .nav:nth-child(2) a:hover {  /* specificity = （类选择器 10）+ 2 * （伪类 10）+ 3 * （元素选择器 1） = 0033 胜出 悬停时链接边框的样式*/
+  border: 10px double black;
+}
+a {
+  display: inline-block;
+  line-height: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 10px;
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
+/*例3 继承*/
+/*三个值分别为
+inherit 继承 ： 所选元素的属性值，与其 父元素 的属性值相同；
+initial 初始化 ：所选元素的属性值，与 浏览器默认样式 相同；若浏览器无默认样式，则 initial = inherit;
+unset 未设置 ：将属性重置为其自然值，属性自然的继承 = inherit；否则 = initial；*/
+body { /*首先将<body>的颜色设置为绿色。 由于颜色属性是自然遗传的，所以身体的所有子元素都将具有相同的绿色。*/
+  color: green;  /*默认情况下，浏览器将链接的颜色设置为蓝色，而不是允许颜色属性的自然继承，因此列表中的第一个链接，为蓝色。 */
+}  
+
+.inherit a {
+  color: inherit; /*继承类继承自其父类的颜色，最终从<body>元素继承其颜色，为绿色。*/
+}
+
+.initial a {
+  color: initial /*通常，浏览器为文本颜色设置的初始值为黑色，因此此链接设置为黑色。*/ 
+}
+
+.unset a {
+  color: unset; /*因为color属性是一个自然的继承属性，它的作用就像将值设置为inherit。因此，此链接设置为与身体相同的颜色，为绿色。*/
+}
