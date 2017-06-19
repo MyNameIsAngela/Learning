@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一、CSS介绍 - 4.盒子模型</title>
+	<!-- 学习网页：https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model -->
+	<link rel="stylesheet" type="text/css" href="Learning 4.css">
+</head>
+<body>
+	<!-- 例1 溢出 -->
+	<p class="example-1 autoscroll">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Mauris tempus turpis id ante mollis dignissim. Nam sed
+		dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+		iaculis tincidunt augue. Integer efficitur sem eget risus
+		cursus, ornare venenatis augue hendrerit. Praesent non elit
+		metus. Morbi vel sodales ligula.
+	</p>
+
+	<p class="example-1 clipped">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Mauris tempus turpis id ante mollis dignissim. Nam sed
+		dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+		iaculis tincidunt augue. Integer efficitur sem eget risus
+		cursus, ornare venenatis augue hendrerit. Praesent non elit
+		metus. Morbi vel sodales ligula.
+	</p>
+
+	<p class="example-1 default">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Mauris tempus turpis id ante mollis dignissim. Nam sed
+		dolor non tortor lacinia lobortis id dapibus nunc. Praesent
+		iaculis tincidunt augue. Integer efficitur sem eget risus
+		cursus, ornare venenatis augue hendrerit. Praesent non elit
+		metus. Morbi vel sodales ligula.
+	</p>
+
+	<!-- 例2 背景放置 background-clip -->
+	<div class="default"></div>
+	<div class="padding-box"></div>
+	<div class="content-box"></div>
+
+	<!-- 例3 Types of CSS boxes -->
+	<p class="example-3"> 
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		<span class="inline">Mauris tempus turpis id ante mollis dignissim.</span>
+		Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
+	</p>
+
+	<p class="example-3">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		<span class="block">Mauris tempus turpis id ante mollis dignissim.</span>
+		Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
+	</p>
+
+	<p class="example-3">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		<span class="inline-block">Mauris tempus turpis id ante mollis dignissim.</span>
+		Nam sed dolor non tortor lacinia lobortis id dapibus nunc.
+	</p>
+</body>
+</html>

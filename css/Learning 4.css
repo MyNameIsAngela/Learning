@@ -1,0 +1,54 @@
+/*例1 溢出 当设置与绝对值（例如固定的像素宽度/高度）一个框的大小，内容可以不在允许尺寸，在这种情况下，内容溢出箱内适合。*/
+/*此时使用overflow属性。但最常见的值有：
+auto：如果有太多的内容，将溢出的内容被隐藏和滚动条显示，让用户滚动查看所有内容。
+hidden：如果有太多的内容，将溢出的内容是隐藏的。
+visible：如果有太多的内容，将溢出的内容显示框外（这通常是默认行为。）*/
+p.example-1 {
+	width  : 400px;
+	height : 2.5em;
+	padding: 1em 1em 1em 1em;
+	border : 1px solid black;
+}
+
+.autoscroll { overflow: auto;    }
+.clipped    { overflow: hidden;  }
+.default    { overflow: visible; }
+
+/*例2 背景放置 background-clip  默认情况下，背景延伸到边框的外边缘*/
+div {
+	width  : 60px;
+	height : 60px;
+	border : 20px solid rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	margin : 20px 0;
+
+	background-size    : 140px;
+	background-position: center;
+	background-image   : url('https://mdn.mozillademos.org/files/11947/ff-logo.png');
+	background-color   : gold;
+}
+
+.default     { background-clip: border-box;  }
+.padding-box { background-clip: padding-box; }
+.content-box { background-clip: content-box; }
+
+/*例3 Types of CSS boxes*/
+/*block
+inline 
+inline-block*/
+p.example-3 {
+	padding : 1em;
+	border  : 1px solid black;
+}
+
+span {
+	padding : 0.5em;
+	border  : 1px solid green;
+
+	/* That makes the box visible, regardless of its type */
+	background-color: yellow;
+}
+
+.inline       { display: inline;       }
+.block        { display: block;        }
+.inline-block { display: inline-block; }
